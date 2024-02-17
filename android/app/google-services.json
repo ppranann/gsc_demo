@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "485794932629",
+    "project_id": "project1-erx2t3",
+    "storage_bucket": "project1-erx2t3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:485794932629:android:99ea960273c7368262789c",
+        "android_client_info": {
+          "package_name": "kaleo.chat.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "485794932629-kh72qgdedj9upnfrntdbbu5rteqoa5jb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kaleo.chat.app",
+            "certificate_hash": "2e2791103b292e60397661b99184947203041705"
+          }
+        },
+        {
+          "client_id": "485794932629-nnel5il7v4p5ukncasbntb49rq6rp5j5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5eY300PExdICCzzCR9PZI74VK1LGjP7g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "485794932629-nnel5il7v4p5ukncasbntb49rq6rp5j5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "485794932629-b38hql36cmq0j6vp5he6otj9c66d1m5t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "kaleo.chat.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
