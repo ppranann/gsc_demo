@@ -112,7 +112,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget>
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: 350.0,
                     decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).primary,
+                      color: Color(0xFFEB5121),
                     ),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,

@@ -284,7 +284,7 @@ class _ChatDetailsWidgetState extends State<ChatDetailsWidget> {
         ),
       ),
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primary,
+        backgroundColor: Color(0xFFEB5121),
         automaticallyImplyLeading: false,
         leading: InkWell(
           splashColor: Colors.transparent,

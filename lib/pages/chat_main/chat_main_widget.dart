@@ -73,7 +73,7 @@ class _ChatMainWidgetState extends State<ChatMainWidget> {
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
           appBar: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).primary,
+            backgroundColor: Color(0xFFEB5121),
             automaticallyImplyLeading: false,
             title: Text(
               'All Chats',

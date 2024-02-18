@@ -133,7 +133,7 @@ class _NavBarPageState extends State<NavBarPage> {
           _currentPageName = tabs.keys.toList()[i];
         }),
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-        selectedItemColor: Color(0xFF4B39EF),
+        selectedItemColor: Color(0xFFEB5121),
         unselectedItemColor: Color(0x98939393),
         showSelectedLabels: false,
         showUnselectedLabels: false,

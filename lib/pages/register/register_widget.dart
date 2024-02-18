@@ -64,13 +64,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
           width: double.infinity,
           height: double.infinity,
           decoration: BoxDecoration(
-            color: Color(0x19444D59),
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: Image.asset(
-                'assets/images/launchScreen@3x.png',
-              ).image,
-            ),
+            color: FlutterFlowTheme.of(context).secondaryBackground,
           ),
           child: Column(
             mainAxisSize: MainAxisSize.max,
@@ -351,7 +345,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   iconPadding:
                       EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                  color: FlutterFlowTheme.of(context).primary,
+                  color: Color(0xFFEB5121),
                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Lexend Deca',
                         color: FlutterFlowTheme.of(context).tertiary,
@@ -422,7 +416,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                   elevation: 0.0,
                                   borderSide: BorderSide(
                                     color:
-                                        FlutterFlowTheme.of(context).alternate,
+                                        FlutterFlowTheme.of(context).secondary,
                                     width: 2.0,
                                   ),
                                   borderRadius: BorderRadius.circular(40.0),
@@ -472,7 +466,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                         elevation: 0.0,
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
-                                              .alternate,
+                                              .secondary,
                                           width: 2.0,
                                         ),
                                         borderRadius:

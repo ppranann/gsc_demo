@@ -91,7 +91,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
           appBar: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).primary,
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             automaticallyImplyLeading: false,
             leading: InkWell(
               splashColor: Colors.transparent,
@@ -130,7 +130,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: 550.0,
                     decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).primary,
+                      color: FlutterFlowTheme.of(context).primaryBackground,
                     ),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -255,14 +255,16 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                         FlutterFlowTheme.of(context).bodyMedium,
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0x00000000),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(30.0),
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0x00000000),
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(30.0),
@@ -282,7 +284,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                       borderRadius: BorderRadius.circular(30.0),
                                     ),
                                     filled: true,
-                                    fillColor: Color(0xFF3124A1),
+                                    fillColor: Color(0xFFEB5121),
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
                                             16.0, 24.0, 16.0, 24.0),
@@ -324,14 +326,16 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                         FlutterFlowTheme.of(context).bodyMedium,
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0x00000000),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(30.0),
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0x00000000),
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(30.0),
@@ -351,7 +355,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                       borderRadius: BorderRadius.circular(30.0),
                                     ),
                                     filled: true,
-                                    fillColor: Color(0xFF3124A1),
+                                    fillColor: Color(0xFFEB5121),
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
                                             16.0, 24.0, 16.0, 24.0),
@@ -392,14 +396,16 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                         FlutterFlowTheme.of(context).bodyMedium,
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0x00000000),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(30.0),
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
-                                        color: Color(0x00000000),
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(30.0),
@@ -419,7 +425,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                       borderRadius: BorderRadius.circular(30.0),
                                     ),
                                     filled: true,
-                                    fillColor: Color(0xFF3124A1),
+                                    fillColor: Color(0xFFEB5121),
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
                                             16.0, 24.0, 16.0, 24.0),
@@ -488,7 +494,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                       borderRadius: BorderRadius.circular(30.0),
                                     ),
                                     filled: true,
-                                    fillColor: Color(0xFF3124A1),
+                                    fillColor: Color(0xFFEB5121),
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
                                             16.0, 24.0, 16.0, 24.0),

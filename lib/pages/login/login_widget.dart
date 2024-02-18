@@ -54,27 +54,44 @@ class _LoginWidgetState extends State<LoginWidget> {
 
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).secondary,
+      backgroundColor: Color(0xFFEB5121),
       body: Align(
         alignment: AlignmentDirectional(-0.14, -0.08),
         child: Container(
           width: double.infinity,
           height: double.infinity,
           decoration: BoxDecoration(
-            color: FlutterFlowTheme.of(context).secondary,
-            image: DecorationImage(
-              fit: BoxFit.fitWidth,
-              image: Image.asset(
-                'assets/images/launchScreen@3x.png',
-              ).image,
-            ),
+            color: FlutterFlowTheme.of(context).secondaryBackground,
           ),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 180.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 60.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(40.0, 0.0, 0.0, 0.0),
+                        child: Text(
+                          'Bizz\nNeeds',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Anton',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontSize: 70.0,
+                                fontWeight: FontWeight.normal,
+                              ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 Padding(
                   padding:
                       EdgeInsetsDirectional.fromSTEB(40.0, 0.0, 40.0, 20.0),
@@ -256,7 +273,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).primary,
+                    color: Color(0xFFEB5121),
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Lexend Deca',
                           color: FlutterFlowTheme.of(context).tertiary,
@@ -327,7 +344,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     elevation: 0.0,
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
-                                          .alternate,
+                                          .secondary,
                                       width: 2.0,
                                     ),
                                     borderRadius: BorderRadius.circular(40.0),
@@ -338,7 +355,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 16.0),
+                                    0.0, 0.0, 0.0, 1.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     context.pushNamed('Login');
@@ -366,7 +383,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     elevation: 0.0,
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
-                                          .alternate,
+                                          .secondary,
                                       width: 2.0,
                                     ),
                                     borderRadius: BorderRadius.circular(40.0),
