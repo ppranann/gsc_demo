@@ -153,7 +153,7 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: FaIcon(
-              FontAwesomeIcons.angellist,
+              FontAwesomeIcons.circle,
               size: 30.0,
             ),
             label: 'Home',

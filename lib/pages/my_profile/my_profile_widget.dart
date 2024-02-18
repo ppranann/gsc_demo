@@ -266,22 +266,6 @@ class _MyProfileWidgetState extends State<MyProfileWidget>
                             ),
                           ],
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 4.0, 0.0, 0.0),
-                          child: Text(
-                            valueOrDefault<String>(
-                              myProfileUsersRecord.email,
-                              'No Email Associated with Account',
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Lexend Deca',
-                                  color: FlutterFlowTheme.of(context).secondary,
-                                ),
-                          ),
-                        ),
                       ],
                     ),
                   ),

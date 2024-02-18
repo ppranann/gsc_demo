@@ -1,5 +1,5 @@
 import '/backend/backend.dart';
-import '/components/empty_list/empty_list_widget.dart';
+import '/components/empty_list_copy/empty_list_copy_widget.dart';
 import '/flutter_flow/chat/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';

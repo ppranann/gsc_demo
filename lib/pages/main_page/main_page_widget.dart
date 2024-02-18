@@ -98,107 +98,166 @@ class _MainPageWidgetState extends State<MainPageWidget>
             child: Scaffold(
               key: scaffoldKey,
               backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+              appBar: PreferredSize(
+                preferredSize: Size.fromHeight(1.0),
+                child: AppBar(
+                  backgroundColor:
+                      FlutterFlowTheme.of(context).primaryBackground,
+                  automaticallyImplyLeading: false,
+                  title: Text(
+                    'Page Title',
+                    style: FlutterFlowTheme.of(context).headlineMedium.override(
+                          fontFamily: 'Lexend Deca',
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          fontSize: 22.0,
+                        ),
+                  ),
+                  actions: [],
+                  centerTitle: false,
+                  elevation: 0.0,
+                ),
+              ),
               body: Stack(
                 children: [
-                  Stack(
-                    children: [
-                      if (!(mainPageUsersRecord != null))
-                        Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Expanded(
-                              child: wrapWithModel(
-                                model: _model.emptyListModel,
-                                updateCallback: () => setState(() {}),
-                                child: EmptyListWidget(),
+                  if (!(mainPageUsersRecord != null))
+                    Stack(
+                      children: [
+                        if (!(mainPageUsersRecord != null))
+                          Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Expanded(
+                                child: wrapWithModel(
+                                  model: _model.emptyListModel,
+                                  updateCallback: () => setState(() {}),
+                                  child: EmptyListWidget(),
+                                ),
+                              ),
+                            ],
+                          ),
+                      ],
+                    ),
+                  if (mainPageUsersRecord != null)
+                    StreamBuilder<List<UsersRecord>>(
+                      stream: queryUsersRecord(
+                        queryBuilder: (usersRecord) => usersRecord.whereNotIn(
+                            'uid',
+                            functions.combinedList(
+                                (currentUserDocument?.matches?.toList() ?? [])
+                                    .toList(),
+                                (currentUserDocument?.rejected?.toList() ?? [])
+                                    .toList())),
+                      ),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: CircularProgressIndicator(
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  FlutterFlowTheme.of(context).primary,
+                                ),
                               ),
                             ),
-                          ],
-                        ),
-                    ],
-                  ),
-                  FlutterFlowSwipeableStack(
-                    onSwipeFn: (index) {},
-                    onLeftSwipe: (index) async {
-                      await currentUserReference!.update({
-                        ...mapToFirestore(
-                          {
-                            'rejected': FieldValue.arrayUnion(
-                                [mainPageUsersRecord?.uid]),
-                          },
-                        ),
-                      });
+                          );
+                        }
+                        List<UsersRecord> swipeableStackUsersRecordList =
+                            snapshot.data!
+                                .where((u) => u.uid != currentUserUid)
+                                .toList();
+                        return FlutterFlowSwipeableStack(
+                          onSwipeFn: (index) {},
+                          onLeftSwipe: (index) async {
+                            final swipeableStackUsersRecord =
+                                swipeableStackUsersRecordList[index];
 
-                      context.pushNamed(
-                        'MainPage',
-                        extra: <String, dynamic>{
-                          kTransitionInfoKey: TransitionInfo(
-                            hasTransition: true,
-                            transitionType: PageTransitionType.fade,
-                            duration: Duration(milliseconds: 0),
-                          ),
-                        },
-                      );
-                    },
-                    onRightSwipe: (index) async {
-                      await currentUserReference!.update({
-                        ...mapToFirestore(
-                          {
-                            'matches': FieldValue.arrayUnion(
-                                [mainPageUsersRecord?.uid]),
-                          },
-                        ),
-                      });
-                      if (mainPageUsersRecord!.matches
-                          .contains(currentUserUid)) {
-                        await ChatsRecord.collection.doc().set({
-                          ...createChatsRecordData(
-                            userA: mainPageUsersRecord?.reference,
-                            lastMessage: '\"\"',
-                            lastMessageTime: getCurrentTimestamp,
-                            userB: currentUserReference,
-                          ),
-                          ...mapToFirestore(
-                            {
-                              'users': functions.createChatUserList(
-                                  mainPageUsersRecord!.reference,
-                                  currentUserReference!),
-                            },
-                          ),
-                        });
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(
-                              'Congratulations! You have a new match',
-                              style: TextStyle(
-                                color: FlutterFlowTheme.of(context).primaryText,
+                            await currentUserReference!.update({
+                              ...mapToFirestore(
+                                {
+                                  'rejected': FieldValue.arrayUnion(
+                                      [mainPageUsersRecord?.uid]),
+                                },
                               ),
-                            ),
-                            duration: Duration(milliseconds: 3000),
-                            backgroundColor:
-                                FlutterFlowTheme.of(context).secondary,
-                          ),
-                        );
-                        await Future.delayed(
-                            const Duration(milliseconds: 3000));
-                      }
+                            });
 
-                      context.pushNamed(
-                        'MainPage',
-                        extra: <String, dynamic>{
-                          kTransitionInfoKey: TransitionInfo(
-                            hasTransition: true,
-                            transitionType: PageTransitionType.fade,
-                            duration: Duration(milliseconds: 0),
-                          ),
-                        },
-                      );
-                    },
-                    onUpSwipe: (index) {},
-                    onDownSwipe: (index) {},
-                    itemBuilder: (context, index) {
-                      return [
-                        () => Stack(
+                            context.pushNamed(
+                              'MainPage',
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 0),
+                                ),
+                              },
+                            );
+                          },
+                          onRightSwipe: (index) async {
+                            final swipeableStackUsersRecord =
+                                swipeableStackUsersRecordList[index];
+
+                            await currentUserReference!.update({
+                              ...mapToFirestore(
+                                {
+                                  'matches': FieldValue.arrayUnion(
+                                      [mainPageUsersRecord?.uid]),
+                                },
+                              ),
+                            });
+                            if (mainPageUsersRecord!.matches
+                                .contains(currentUserUid)) {
+                              await ChatsRecord.collection.doc().set({
+                                ...createChatsRecordData(
+                                  userA: mainPageUsersRecord?.reference,
+                                  lastMessage: '\"\"',
+                                  lastMessageTime: getCurrentTimestamp,
+                                  userB: currentUserReference,
+                                ),
+                                ...mapToFirestore(
+                                  {
+                                    'users': functions.createChatUserList(
+                                        mainPageUsersRecord!.reference,
+                                        currentUserReference!),
+                                  },
+                                ),
+                              });
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'Congratulations! You have a new match',
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                                  ),
+                                  duration: Duration(milliseconds: 3000),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                ),
+                              );
+                              await Future.delayed(
+                                  const Duration(milliseconds: 3000));
+                            }
+
+                            context.pushNamed(
+                              'MainPage',
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 0),
+                                ),
+                              },
+                            );
+                          },
+                          onUpSwipe: (index) {},
+                          onDownSwipe: (index) {},
+                          itemBuilder: (context, swipeableStackIndex) {
+                            final swipeableStackUsersRecord =
+                                swipeableStackUsersRecordList[
+                                    swipeableStackIndex];
+                            return Stack(
                               children: [
                                 Stack(
                                   children: [
@@ -299,7 +358,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                                       .photoUrl,
                                                                   width: double
                                                                       .infinity,
-                                                                  height: 400.0,
+                                                                  height: 346.0,
                                                                   fit: BoxFit
                                                                       .cover,
                                                                 ),
@@ -386,15 +445,16 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                   ],
                                 ),
                               ],
-                            ),
-                      ][index]();
-                    },
-                    itemCount: 1,
-                    controller: _model.swipeableStackController,
-                    loop: false,
-                    cardDisplayCount: 3,
-                    scale: 0.9,
-                  ),
+                            );
+                          },
+                          itemCount: swipeableStackUsersRecordList.length,
+                          controller: _model.swipeableStackController,
+                          loop: false,
+                          cardDisplayCount: 3,
+                          scale: 0.9,
+                        );
+                      },
+                    ),
                 ],
               ),
             ),

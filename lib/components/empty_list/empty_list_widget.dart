@@ -46,13 +46,6 @@ class _EmptyListWidgetState extends State<EmptyListWidget> {
           height: 200.0,
           child: Stack(
             children: [
-              if (Theme.of(context).brightness == Brightness.dark)
-                Image.asset(
-                  'assets/images/chatsEmptyDark@2x.png',
-                  width: 300.0,
-                  height: 200.0,
-                  fit: BoxFit.contain,
-                ),
               if (!(Theme.of(context).brightness == Brightness.dark))
                 Image.asset(
                   'assets/images/chatEmpty@2x.png',
